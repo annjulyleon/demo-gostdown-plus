@@ -18,7 +18,7 @@ Gitlab'овский CI/CD состоит из двух важных компон
 
 1. Для начала активируем для проекта CI/СD (_Settings_ -> _General_ -> _Visibility, project features, permissions_ -> _Expand_ -> включить CI/CD).
 2. В разделе _Setting_ -> _CI/CD_ -> _Runners (Expand)_ есть информация, которую нужно указывать при регистрации gitlab-runner ниже (token и адрес). Если у вас selfhosted Gitlab на докерах, то адрес может быть с HTTP, даже если у вас HTTPS. Если при регистрации gitlab-runner появляется ошибка 401, то вам нужен HTTPS.
-3. Делаем по туториалу [Install Gitlab Runner on Windows](https://docs.gitlab.com/runner/install/windows.html), ну по крайней мере первые пункты совпадают ). На машине создаем папку без кириллицы (`D:\gitlab-runner`). Достаточно одного раннера на все проекты.
+3. Делаем по туториалу [Install Gitlab Runner on Windows](https://docs.gitlab.com/runner/install/windows.html), ну по крайней мере первые пункты совпадают ). На машине создаем папку без кириллицы (`D:\gitlab-runner`). На каждый проект нужен свой раннер.
 4. Сохранить туда .exe, ([вот файл](https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-amd64.exe)). Переименовать exe в `gitlab-runner.exe` (для удобства, можно как угодно назвать).
 5. Если у вас self-signed сертификат в Gitlab'e, экспортируйте его с сайта и положите в рабочую папку раннером (например, файл `gitlab.blabla.ru.crt`).
 6. Запустить от администратора консоль (обычную, не PowerShell) и перейти в папку с раннером (`d:`, `cd D:\D:\gitlab-runner`).
