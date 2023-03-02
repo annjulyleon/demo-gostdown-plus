@@ -1,0 +1,908 @@
+<!doctype html>
+<html >
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+
+  <link href="assets/css/template.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/video-js.css" rel="stylesheet" type="text/css" />
+
+  <script type='text/javascript' src="assets/js/jquery-2.2.1.min.js"></script>
+  <script type='text/javascript' src='assets/js/jquery.cookie.js'></script>
+  <script type='text/javascript' src='assets/js/jquery.hoverIntent.minified.js'></script>
+  <script type='text/javascript' src='assets/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+  <link href="assets/css/blue.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/graphite.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/grey.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+
+  <script src="assets/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/jquery.sticky-kit.js"></script>
+
+  <meta name="generator" content="pandoc" />
+      <title>00_begin</title>
+  <style type="text/css">
+    code {
+      white-space: pre;
+    }
+  </style>
+      <style type="text/css">
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+        </head>
+
+<body>
+
+
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+          <ul>
+          <li><a href="#аннотация" id="toc-аннотация"><span
+          data-custom-style="UnnumberedHeadingOneNoTOC">Аннотация</span></a></li>
+          <li><a href="#содержание" id="toc-содержание"><span
+          data-custom-style="UnnumberedHeadingOneNoTOC">Содержание</span></a></li>
+          <li><a href="#обновление-свойств-документа"
+          id="toc-обновление-свойств-документа">Обновление свойств
+          документа</a></li>
+          <li><a href="#добавляем-single-source-и-переменные"
+          id="toc-добавляем-single-source-и-переменные">Добавляем
+          single-source и переменные</a></li>
+          <li><a href="#одностраничный-html-по-шаблону"
+          id="toc-одностраничный-html-по-шаблону">Одностраничный HTML по
+          шаблону</a></li>
+          <li><a href="#таски" id="toc-таски">Таски</a></li>
+          <li><a href="#прикручиваем-cicd-на-gitlab"
+          id="toc-прикручиваем-cicd-на-gitlab">Прикручиваем CI/CD на
+          GitLab</a></li>
+          <li><a href="#установка-и-настройка-gitlab-runner"
+          id="toc-установка-и-настройка-gitlab-runner">Установка и
+          настройка gitlab-runner</a></li>
+          <li><a href="#исправляем-ошибки-и-фиксим-конфиги"
+          id="toc-исправляем-ошибки-и-фиксим-конфиги">Исправляем ошибки
+          и фиксим конфиги</a>
+          <ul>
+          <li><a href="#кракозябры-в-консоли-на-gitlab"
+          id="toc-кракозябры-в-консоли-на-gitlab">Кракозябры в консоли
+          на GitLab</a></li>
+          <li><a href="#git-пути-и-директории"
+          id="toc-git-пути-и-директории">Git, пути и директории</a></li>
+          <li><a href="#права-разрешения-и-доступ-к-comobject"
+          id="toc-права-разрешения-и-доступ-к-comobject">Права,
+          разрешения и доступ к COMObject</a></li>
+          </ul></li>
+          <li><a href="#пример-конфигурации"
+          id="toc-пример-конфигурации">Пример конфигурации</a></li>
+          <li><a href="#чистим-историю-пайплайнов"
+          id="toc-чистим-историю-пайплайнов">Чистим историю
+          пайплайнов</a></li>
+          <li><a href="#вместо-эпилога" id="toc-вместо-эпилога">Вместо
+          эпилога</a></li>
+          </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+
+        
+                <h1 class="unnumbered" id="аннотация"><span
+                data-custom-style="UnnumberedHeadingOneNoTOC">Аннотация</span></h1>
+                <p>В этом программном документе приведено описание
+                программы <span>Gostdown+</span> – это переменная из
+                преамбулы.</p>
+                <p><a
+                href="https://gitlab.iaaras.ru/iaaras/gostdown">Gostdown</a>
+                - замечательный проект для нас, несчастных, крепко
+                завязанных на Microsoft Word. И все же в основной версии
+                кое-чего важного ему не хватает: трушного single source,
+                переменных и CI/CD. Но нет ничего невозможного для
+                ленивого техписа, который хочет, чтобы оно все само!</p>
+                <p>Мой первоначальный фреймворк описан в двух предыдущих
+                постах. Для этого поста я также подготовила
+                демонстрационный репозиторий [demo-gostdown-plus]. Эту
+                версия успешно отработала на последней версии pandoc
+                (3.1) и pandoc-crossref (v0.3.15.1).</p>
+                <p>В чем отличия от основной версии:</p>
+                <ol type="1">
+                <li>Можно использовать один шаблон для всех документов:
+                прикручен скрипт <a
+                href="https://github.com/annjulyleon/doc-scripts/tree/main/update_docx_props">update_docx_props</a>.</li>
+                <li>Команда запуска pandoc в скрипте
+                <code>build.ps1</code> Gostdown модифицирована. Теперь
+                можно использовать фильтры pandoc. Добавлены фильтры для
+                включения файлов (<code>include_files.lua</code>) и
+                обработки переменных
+                (<code>metadata_processor.lua</code>).</li>
+                <li>Прикручена возможность собирать простой
+                одностраничный HTML.</li>
+                <li>Отлажены Tasks для VSCode. Таски позволяют запускать
+                скрипты без всяких bat-ников, что уменьшает
+                дублирование. Один скрипт build.ps1 для всего.</li>
+                <li>Прикручена <a
+                href="https://annjulyleon.github.io/docops/docops-spelling/">проверка
+                правописания с Vale</a>. Эта очень полезная штука просто
+                спасает мне жизнь при переносе информации с внутренней
+                вики, отлично отлавливает сленг.</li>
+                <li>Чтобы любой чайник мог собрать документ прямо в
+                GitLab, прикручен CI/CD (CI/CD конфигурация из
+                репозитория Gostdown у меня не заработала).</li>
+                </ol>
+                <p>Проехали.</p>
+                <h1 class="unnumbered" id="содержание"><span
+                data-custom-style="UnnumberedHeadingOneNoTOC">Содержание</span></h1>
+                <p>%TOC%</p>
+                <h1 id="обновление-свойств-документа">Обновление свойств
+                документа</h1>
+                <p>В Gostdown для формирования документа docx
+                используется шаблон, в котором задается титул, название
+                документа, децимальный номер и прочие общие сведения.
+                Если документов в проекте много, то держать в
+                репозитории несколько шаблонов расточительно, особенно,
+                если отличаются они только названием и децимальными
+                номерами.</p>
+                <p>К счастью, у меня уже есть скрипт для обновления
+                полей документов <a
+                href="https://github.com/annjulyleon/doc-scripts/tree/main/update_docx_props">update_docx_props</a>.
+                Понадобилась лишь доработка напильником, чтобы можно
+                было вызывать скрипт для одного файла (эта версия лежит
+                <a
+                href="https://github.com/annjulyleon/doc-scripts/tree/main/update_docx_props/update_docx_props_single">вот
+                тут</a>, рядышком).</p>
+                <p>Получается вот такой workflow:</p>
+                <ol type="1">
+                <li>Собрать документ. Документ сохранен в директорию
+                <code>/build</code> (настраивается в таске).</li>
+                <li>Запустить таску «Update docx fields». Выбрать из
+                списка документ (документ соответствует названию файла и
+                директории).</li>
+                <li>Скрипт обновления свойств будет запущен для
+                выбранного документа.</li>
+                </ol>
+                <p>Настройка:</p>
+                <ol type="1">
+                <li><p>Создать в директории проекта папку
+                <code>/build</code>.</p></li>
+                <li><p>В папку <code>scripts</code> сохранить скрипт
+                <code>update_docx_props.ps1</code>.</p></li>
+                <li><p>В папке <code>scripts/configs</code> создать
+                конфигурационный файл для документа. В конфигурационном
+                файле указать свойства, которые нужно обновлять.</p>
+                <div class="sourceCode" id="cb1"><pre
+                class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">customProperties</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;DeviceName&quot;</span><span class="ot"> value=</span><span class="st">&quot;Красивое название&quot;</span>/&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;DocTitle&quot;</span><span class="ot"> value=</span><span class="st">&quot;Описание программы&quot;</span>/&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;DecimalNumber&quot;</span><span class="ot"> value=</span><span class="st">&quot;АБВГ.00002 01 13&quot;</span>/&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;DocSubtitle&quot;</span><span class="ot"> value=</span><span class="st">&quot;Подзаголовок&quot;</span>/&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;DocYear&quot;</span><span class="ot"> value=</span><span class="st">&quot;2023&quot;</span>/&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">customProperties</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">builtinProperties</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;Title&quot;</span><span class="ot"> value=</span><span class="st">&quot;Красивое название. Описание программы&quot;</span>/&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;Subject&quot;</span><span class="ot"> value=</span><span class="st">&quot;Красивое название&quot;</span>/&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;Keywords&quot;</span><span class="ot"> value=</span><span class="st">&quot;description&quot;</span>/&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     &lt;<span class="kw">add</span><span class="ot"> key=</span><span class="st">&quot;Comments&quot;</span><span class="ot"> value=</span><span class="st">&quot;2023&quot;</span>/&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">builtinProperties</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a> &lt;<span class="kw">vsdProperties</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a> &lt;/<span class="kw">vsdProperties</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">configuration</span>&gt;</span></code></pre></div></li>
+                <li><p>Создать таску для VS Code в
+                <code>.vscode/tasks.json</code>:</p>
+                <div class="sourceCode" id="cb2"><pre
+                class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;Update docx fields&quot;</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;detail&quot;</span><span class="fu">:</span> <span class="st">&quot;Update builded document&quot;</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;shell&quot;</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;options&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;cwd&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/build/&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">},</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}</span><span class="ch">\\</span><span class="st">scripts</span><span class="ch">\\</span><span class="st">update_docx_props.ps1 -dir ${workspaceFolder}</span><span class="ch">\\</span><span class="st">build -conf ${workspaceFolder}</span><span class="ch">\\</span><span class="st">scripts</span><span class="ch">\\</span><span class="st">configs</span><span class="ch">\\</span><span class="st">${input:doc}.xml -filename ${input:doc}.docx&quot;</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;presentation&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;echo&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;reveal&quot;</span><span class="fu">:</span> <span class="st">&quot;always&quot;</span><span class="fu">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;focus&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;panel&quot;</span><span class="fu">:</span> <span class="st">&quot;shared&quot;</span><span class="fu">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;showReuseMessage&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>             <span class="dt">&quot;clear&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>         <span class="fu">}</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>     <span class="fu">}</span></span></code></pre></div></li>
+                <li><p>В таске используется <a
+                href="https://code.visualstudio.com/docs/editor/variables-reference#_input-variables">input
+                variables</a>. Их удобно использовать, например, для
+                запуска одной таски для нескольких директорий:</p>
+                <div class="sourceCode" id="cb3"><pre
+                class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;inputs&quot;:</span> <span class="ot">[</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;doc&quot;</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;Document Path: &quot;</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;pickString&quot;</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;options&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;example_doc&quot;</span><span class="ot">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;another_doc&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>         <span class="dt">&quot;default&quot;</span><span class="fu">:</span> <span class="st">&quot;example_doc&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span></span></code></pre></div></li>
+                </ol>
+                <h1 id="добавляем-single-source-и-переменные">Добавляем
+                single-source и переменные</h1>
+                <p>В общем я не думала, что мне опять понадобиться
+                single-source, но <del>жизнь</del> требования
+                технического задания распорядились иначе. 11 комплектов
+                документов с большими общими кусками, кусками,
+                отличающимися только названием ПО - без single source
+                тут с ума сойдешь.</p>
+                <p>Вот как это работает:</p>
+                <ol type="1">
+                <li>Файлы с общими кусками текста лежат где-то в общей
+                папке. В демонстрационном репозитории это
+                <code>docs_gost/single_source</code>.</li>
+                <li>В файле или файлах основного документа (например, в
+                <code>docs_gost/example_doc</code>) вставляем в нужные
+                места файлы из <code>docs_gost/single_source</code> с
+                помощью специального синтаксиса.</li>
+                <li>В шапке документа (в YAML-преамбуле) добавляем свои
+                переменные (например, в
+                <code>docs_gost/single_source00_begin.md</code>
+                добавлена переменная <code>soft-name</code>).</li>
+                <li>В тексте к переменной обращаемся вот так:
+                <code>${soft-name}</code>. При сборке сюда будет
+                подставлено значение переменной из преамбулы.</li>
+                <li>Модифицированная команда pandoc в
+                <code>build.ps1</code> применяет все необходимые фильтры
+                и обрабатывает результат. А затем передает уже основному
+                скрипту <code>build.ps1</code>, который применяет шаблон
+                и творит свою COMKbject-овскую магию.</li>
+                </ol>
+                <p>В демонстрационном репозитории
+                <code>example_doc</code> имеет все перечисленный фичи:
+                переменную, включенные файлы и разнообразные картинки. И
+                да, в файлах-источниках тоже можно использовать
+                переменные, они будут заменены на значение из основного
+                файла.</p>
+                <p>К счастью, добрые люди уже разработали все
+                необходимые фильтры, так что их осталось просто немного
+                доработать.</p>
+                <p>Стандартный фильтр из репозитория pandoc <a
+                href="https://github.com/pandoc/lua-filters/tree/master/include-files">include-files</a>
+                уже делает все, что нужно для счастья. В документе, в
+                который хотим что-то вставить пишем (рисунок <a
+                href="#fig:2023-03-07-include">1</a>):</p>
+                <figure>
+                <img src="_img/2023-03-07-include.png"
+                id="fig:2023-03-07-include" alt="Рисунок 1 – Include" />
+                <figcaption aria-hidden="true">Рисунок 1 –
+                Include</figcaption>
+                </figure>
+                <p>В команде pandoc нужно передать ключ
+                <code>-M include-auto</code> , если нужно автоматически
+                перенумеровывать заголовки. Также можно для каждого
+                блока указывать <a
+                href="https://github.com/pandoc/lua-filters/tree/master/include-files#manual-shifting">свои
+                правила нумерации</a>. Я пока обхожусь
+                <code>-M include-auto</code>.</p>
+                <p>Для переменных тоже уже написано немало фильтров. Я
+                адаптировала вот этот <a
+                href="https://github.com/cdivita/pandoc-curly-switch">pandoc-curly-switch</a>.</p>
+                <p>Минусы использования этих фильтров – не полная
+                совместимость с mkdocs, с которой я пока не разбиралась.
+                В mkdocs тоже есть <a
+                href="https://jimandreas.github.io/mkdocs-material/reference/variables/">переменные</a>
+                и плагин <a
+                href="https://github.com/mondeja/mkdocs-include-markdown-plugin">include</a>,
+                так что вероятно их можно совместить с
+                pandoc-фильтрами.</p>
+                <p>Команда pandoc с нашими фильтрами для теста:</p>
+                <div class="sourceCode" id="cb4"><pre
+                class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="er">(</span><span class="fu">cat</span> <span class="pp">*</span>.md<span class="kw">)</span> <span class="ex">-o</span> some.docx <span class="at">-M</span> include-auto <span class="at">--lua-filter</span> include_files.lua <span class="at">--lua-filter</span> linebreaks.lua <span class="at">--lua-filter</span> metadata_processor.lua  <span class="at">--filter</span> pandoc-crossref <span class="at">--citeproc</span> <span class="at">--reference-doc</span> template.docx</span></code></pre></div>
+                <p>А вот команда вызова pandoc в скрипте Gostdown. Как
+                видно добавлена переменная <code>$luafilter</code>, в
+                которой передается путь к папке с фильтрами
+                <code>.lua</code>.</p>
+                <div class="sourceCode" id="cb5"><pre
+                class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span><span class="va">$exe</span> <span class="va">$md</span> <span class="op">-</span>o <span class="va">$tempdocx</span> <span class="op">-</span>M include<span class="op">-</span>auto <span class="op">--</span>lua<span class="op">-</span>filter <span class="va">$luafilter</span>\include_files<span class="op">.</span><span class="fu">lua</span> <span class="op">--</span>lua<span class="op">-</span>filter <span class="va">$luafilter</span>\linebreaks<span class="op">.</span><span class="fu">lua</span> <span class="op">--</span>lua<span class="op">-</span>filter <span class="va">$luafilter</span>\metadata_processor<span class="op">.</span><span class="fu">lua</span>  <span class="op">--</span>filter pandoc<span class="op">-</span>crossref <span class="op">--</span>citeproc <span class="op">--</span>reference<span class="op">-</span>doc <span class="va">$template</span></span></code></pre></div>
+                <h1 id="одностраничный-html-по-шаблону">Одностраничный
+                HTML по шаблону</h1>
+                <p>mkdocs крут, но не всегда нужен полноценный сайт с
+                документацией. Иногда нужен просто одностраничный HTML с
+                навигацией, чтобы быстро отправлять инженерам по
+                запросу. К счастью здесь ничего сложного придумывать не
+                надо, так как pandoc уже все умеет, нужно только
+                подобрать правильное <del>заклинание</del> команду.</p>
+                <p>Шаблон для pandoc можно взять готовый, я использую <a
+                href="https://github.com/ryangrose/easy-pandoc-templates">easy-pandoc-templates</a>
+                by <a href="https://github.com/ryangrose">ryangrose</a>.
+                Их легко можно адаптировать для своих нужд, скачать все
+                необходимые ресурсы, чтобы шаблоны работали оффлайн.</p>
+                <p>Команда для конвертации кучки .md файлов в HTML:</p>
+                <div class="sourceCode" id="cb6"><pre
+                class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pandoc <span class="op">-</span>s $<span class="op">(</span><span class="fu">Get-Content</span> html_include<span class="op">.</span><span class="fu">txt</span><span class="op">)</span> <span class="op">-</span>f markdown <span class="op">--</span>quiet <span class="op">--</span>template<span class="op">=</span>easy<span class="op">-</span>template<span class="op">.</span><span class="fu">html</span> <span class="op">--</span>lua<span class="op">-</span>filter<span class="op">=</span>include_files<span class="op">.</span><span class="fu">lua</span> <span class="op">--</span>lua<span class="op">-</span>filter<span class="op">=</span>linebreaks<span class="op">.</span><span class="fu">lua</span> <span class="op">--</span>lua<span class="op">-</span>filter<span class="op">=</span>metadata_processor<span class="op">.</span><span class="fu">lua</span> <span class="op">--</span>filter pandoc<span class="op">-</span>crossref <span class="op">--</span>citeproc <span class="op">-</span>o output<span class="op">.</span><span class="fu">html</span> <span class="op">--</span>toc</span></code></pre></div>
+                <p>В файле <code>html_include.txt</code> на каждой
+                строке перечислены все md файлы, которые хотим слепить в
+                одностраничный HTML. В скрипте
+                <code>create_simple_html.ps1</code> эта команда
+                параметризована, так что можно легко вызывать скрипт в
+                тасках VSCode.</p>
+                <p>В таске VSCode команда для вызова получилась
+                развесистая, так как помимо сборки документа, нужно
+                также скопировать все картинки. Это делается
+                автоматически таской. К сожалению, из таски не получится
+                вызвать команду замены путей к картинкам (из-за
+                экранирования PowerShell будет ругаться на неправильные
+                паттерны регулярных выражений), поэтому эту команду
+                придется выполнить вручную. В папке <code>/build</code>
+                нужно выполнить команду вида:</p>
+                <div class="sourceCode" id="cb7"><pre
+                class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span><span class="va">$file</span> <span class="kw">in</span> <span class="op">(</span><span class="fu">Get-ChildItem</span> <span class="op">.</span>\web <span class="op">*.</span><span class="fu">html</span> <span class="op">-</span>rec<span class="op">))</span> <span class="op">{(</span><span class="fu">Get-Content</span> <span class="va">$file</span><span class="op">.</span><span class="fu">PSPath</span><span class="op">)</span> <span class="op">|</span> <span class="fu">Foreach-Object</span> <span class="op">{</span> <span class="va">$_</span> <span class="op">-</span>replace &#39;<span class="op">..</span>\\single_source\\_img\\&#39;<span class="op">,</span> &#39;_img<span class="op">/</span>&#39; <span class="op">}</span> <span class="op">|</span> <span class="fu">Set-Content</span> <span class="va">$file</span><span class="op">.</span><span class="fu">PSPath</span> <span class="op">}</span></span></code></pre></div>
+                <h1 id="таски">Таски</h1>
+                <p>Я уже немного писала <a
+                href="https://annjulyleon.github.io/docops/docops-gostdown/#tasks">про
+                таски</a> для запуска стандартных батников Gostdown. Но
+                в тасках можно вызывать скрипт <code>build.ps1</code>
+                напрямую и передавать ему все необходимые параметры. Это
+                позволило убрать из проекта дублирующиеся скрипты и bat
+                и создать одну единственную задачу для сборки всех
+                документов.</p>
+                <p>Рассмотрим вот такую таску из демонстрационного
+                проекта:</p>
+                <div class="sourceCode" id="cb8"><pre
+                class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;Build Doc&quot;</span><span class="fu">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;detail&quot;</span><span class="fu">:</span> <span class="st">&quot;Build selected in docx_include.txt to build docs&quot;</span><span class="fu">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;shell&quot;</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;options&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;cwd&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/docs_gost/${input:doc}/&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">},</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}</span><span class="ch">\\</span><span class="st">scripts</span><span class="ch">\\</span><span class="st">build.ps1 -md $(Get-Content docx_include.txt) -template ${workspaceFolder}</span><span class="ch">\\</span><span class="st">docs_gost</span><span class="ch">\\</span><span class="st">template.docx -luafilter ${workspaceFolder}</span><span class="ch">\\</span><span class="st">scripts -docx ${workspaceFolder}</span><span class="ch">\\</span><span class="st">build</span><span class="ch">\\</span><span class="st">${input:doc}.docx -embedfonts&quot;</span><span class="fu">,</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;presentation&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;echo&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;reveal&quot;</span><span class="fu">:</span> <span class="st">&quot;always&quot;</span><span class="fu">,</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;focus&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;panel&quot;</span><span class="fu">:</span> <span class="st">&quot;shared&quot;</span><span class="fu">,</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;showReuseMessage&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;clear&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">},</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&quot;group&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;kind&quot;</span><span class="fu">:</span> <span class="st">&quot;build&quot;</span><span class="fu">,</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&quot;isDefault&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span></code></pre></div>
+                <p>Как видно, это просто команда из
+                <code>build.bat</code> скрипта Gostdown. Добавлен
+                параметр <code>-luafilter</code>, в котором указан путь
+                к фильтрам pandoc. Кроме того, обратите внимание, чтобы
+                отработали правильно все скрипты, рабочая директория
+                должна быть установлена в корне собираемого документа
+                (параметр <code>options.cwd</code>). Список файлов .md,
+                которые нужно собрать, теперь лежат в файле
+                <code>docx_include.txt</code> в корне документа.</p>
+                <p>В таске используются переменные <a
+                href="https://code.visualstudio.com/docs/editor/variables-reference#_input-variables">input
+                variables</a>, о которых уже говорилось <a
+                href="#обновление-свойств-документа">выше</a>. Таким
+                образом, эту таску можно запускать для всех документов:
+                при запуске пользователю будет предложено выбрать
+                документ для сборки.</p>
+                <h1 id="прикручиваем-cicd-на-gitlab">Прикручиваем CI/CD
+                на GitLab</h1>
+                <p>Итак, наконец-то я добралась до уровня с боссом
+                CI/CD. Пришлось просмотреть немало всяких прохождений,
+                но я справилась). Теперь в репозитории проекта любой
+                менеджер или разработчик может собрать себе docx и
+                скачать артефакты. И теперь техпису не нужно таскать с
+                собой в отпуск ноутбук!</p>
+                <p>Gitlab’овский CI/CD состоит из двух важных
+                компонентов и двух конфигов:</p>
+                <ul>
+                <li>gitlab-runner нужно установить на машину с Windows,
+                на которой будет выполнена сборка. Эта служба выполняет
+                все нужные команды для сборки нашего проекта;</li>
+                <li>в проекте на сайте Gitlab должна быть включена
+                функция CI/CD;</li>
+                <li>в корне проекта должен существовать файл
+                <code>.gitlab-ci.yml</code> с описанием порядка сборки
+                (команды). Все это будет передано gitlab-runner’у на
+                исполнение;</li>
+                <li>рядом с исполняемым файлом gitlab-runner должен
+                лежать конфиг <code>config.toml</code>, в котором
+                описаны настройки подключения к Gitlab.</li>
+                </ul>
+                <p>Все нижеописанные непотребства я проделывала на
+                selfhosted Gitlab/Gitlab runner версии 15.8, Windows 10,
+                Microsoft Word 2021. Предполагается, что у вас есть
+                права владельца проекта на Gitlab’е.</p>
+                <p>Кроме того, на машине, которую будете использовать
+                для сборки, должен быть установлен весь набор программ:
+                Git, pandoc/pandoc-crossref, Microsoft Word, шрифты.
+                Рекомендую также поставить расширение <a
+                href="https://marketplace.visualstudio.com/items?itemName=GitLab.gitlab-workflow">Gitlab
+                Workflow</a> для VSCode для валидации конфигов и запуска
+                пайплайнов прямо из VSCode.</p>
+                <h1 id="установка-и-настройка-gitlab-runner">Установка и
+                настройка gitlab-runner</h1>
+                <p>В официальной документации присутствует <a
+                href="https://docs.gitlab.com/runner/install/windows.html">туториал</a>
+                по установке и настройке gitlab-runner, однако прямо
+                скажу, не очень он отражает суровую действительность и
+                количество проблем, с которыми пришлось столкнуться.</p>
+                <ol type="1">
+                <li><p>Для начала активируем для проекта CI/СD
+                (<em>Settings</em> -&gt; <em>General</em> -&gt;
+                <em>Visibility, project features, permissions</em> -&gt;
+                <em>Expand</em> -&gt; включить CI/CD).</p></li>
+                <li><p>В разделе <em>Setting</em> -&gt; <em>CI/CD</em>
+                -&gt; <em>Runners (Expand)</em> есть информация, которую
+                нужно указывать при регистрации gitlab-runner ниже
+                (token и адрес). Если у вас selfhosted Gitlab на
+                докерах, то адрес может быть с HTTP, даже если у вас
+                HTTPS. Если при регистрации gitlab-runner появляется
+                ошибка 401, то вам нужен HTTPS.</p></li>
+                <li><p>Делаем по туториалу <a
+                href="https://docs.gitlab.com/runner/install/windows.html">Install
+                Gitlab Runner on Windows</a>, ну по крайней мере первые
+                пункты совпадают ). На машине создаем папку без
+                кириллицы (<code>D:\gitlab-runner</code>). Достаточно
+                одного раннера на все проекты.</p></li>
+                <li><p>Сохранить туда .exe, (<a
+                href="https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-amd64.exe">вот
+                файл</a>). Переименовать exe в
+                <code>gitlab-runner.exe</code> (для удобства, можно как
+                угодно назвать).</p></li>
+                <li><p>Если у вас self-signed сертификат в Gitlab’e,
+                экспортируйте его с сайта и положите в рабочую папку
+                раннером (например, файл
+                <code>gitlab.blabla.ru.crt</code>).</p></li>
+                <li><p>Запустить от администратора консоль (обычную, не
+                PowerShell) и перейти в папку с раннером
+                (<code>d:</code>,
+                <code>cd D:\D:\gitlab-runner</code>).</p></li>
+                <li><p>Выполнить в консоли следующую команду. В
+                <code>TOKEN</code> надо указать токен проекта со
+                страницы <em>Setting</em> -&gt; <em>CI/CD</em> -&gt;
+                <em>Runners (Expand)</em>, а в <code>tls-ca-file</code>
+                – <strong>абсолютный путь</strong> к сертификату. В
+                <code>executor</code> можно указать несколько оболочек
+                (https://docs.gitlab.com/runner/executors/), мне нужен
+                только shell:</p>
+                <pre class="text"><code> gitlab-runner register --non-interactive --registration-token TOKEN --url https://gitlab.blabla.ru/ --tls-ca-file D:\gitlab-runner\gitlab.blabla.ru.crt --executor shell</code></pre></li>
+                <li><p>Раннер будет зарегистрирован и появится на
+                странице <em>Setting</em> -&gt; <em>CI/CD</em> -&gt;
+                <em>Runners (Expand)</em>.</p></li>
+                <li><p>Открыть конфигурационный файл
+                <code>config.toml</code> (появится рядом с exe раннера
+                после регистрации) и поменять <code>pwsh</code> в ключе
+                <code>shell</code> на <code>powershell</code> (иначе при
+                запуске пайплайна будет ошибка, что путь не
+                найден).</p></li>
+                <li><p>Установить службу командой
+                <code>gitlab-runner.exe install</code> и запустить
+                <code>gitlab-runner.exe start</code>. Если вы измените
+                конфиг <code>config.toml</code>, то службу нужно
+                перезапустить.</p></li>
+                <li><p>После этого на странице <em>Setting</em> -&gt;
+                <em>CI/CD</em> -&gt; <em>Runners</em> раннер должен
+                стать зелененьким. Если не стал, значит что-то не так, и
+                джобы не запустятся.</p></li>
+                <li><p>В “Службах” в Windows перейти в свойства службы
+                gitlab-runner -&gt; <em>Вход в систему</em> &gt;
+                <em>галка “Разрешить взаимодействие с рабочим
+                столом”</em>.</p></li>
+                </ol>
+                <p>В общем все готово, и можно выполнить тестовую джобу
+                из <a
+                href="https://docs.gitlab.com/ee/ci/quick_start/">туториала</a>.
+                Для этого нужно скопировать содержимое тестового примера
+                в файл <code>.gitlab-ci.yml</code> в корне проекта и
+                закоммитить. В данном случае джоба будет запущена
+                автоматически, сразу после коммита, и появится на в
+                разделе <em>CI/CD</em> -&gt; <em>Jobs</em>. В консоли
+                будут выведены команды <code>echo</code>.</p>
+                <p>Что делает джоба? Выкачивает с помощью Git наш проект
+                из репозитория и применяет перечисленный в
+                <code>.gitlab-ci.yml</code> команды. Артефакты, которые
+                получились в результате, пакует и передает Gitlab’у.
+                Артефакты можно скачать в результатах работы или с
+                вкладки Release (если она была настроена).</p>
+                <p>Ошибки раннера можно смотреть в Windows в Просмотре
+                Событий или в PowerShell
+                <code>Get-WinEvent -ProviderName gitlab-runner</code>.</p>
+                <h1 id="исправляем-ошибки-и-фиксим-конфиги">Исправляем
+                ошибки и фиксим конфиги</h1>
+                <p>Как вы понимаете, если бы все было так просто, мы бы
+                тут не собирались. Первая проблема, с которой я
+                столкнулась – кракозябры в консоли на GitLab. Потом
+                отказывался запускаться скрипт. Потом скрипт не мог
+                найти нужные пути. Короче, без долгих прелюдий перехожу
+                сразу к списку фиксов возможных проблем.</p>
+                <h2 id="кракозябры-в-консоли-на-gitlab">Кракозябры в
+                консоли на GitLab</h2>
+                <p>Чтобы gitlab-runner не писал кракозябры в скрипт
+                <code>.gitlab-ci.yml</code> в конфиг работы нужно
+                добавить <code>CHCP 65001</code>:</p>
+                <div class="sourceCode" id="cb10"><pre
+                class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build-job</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="kw">-</span><span class="at"> CHCP 65001</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span></code></pre></div>
+                <p>Это еще не все. На машине, на которой стоит
+                gitlab-runner нужно переключить региональные настройки
+                на <em>Английский (США)</em>: <em>Региональные
+                параметры</em> -&gt; <em>Дополнительные параметры …
+                </em> -&gt; <em>Региональные стандарты - Изменение
+                форматов даты, времени и чисел </em> -&gt;
+                <em>Дополнительно</em> -&gt; <em>Изменить язык
+                системы</em> -&gt; выбрать Английский (США).</p>
+                <p>Это тоже еще не все, так как при запуске скриптов
+                <code>build.ps1</code> и
+                <code>update_docx_props.ps1</code> могут возникнуть
+                проблемы с кодировкой. Эти скрипты нужно открыть в
+                блокноте Notepad++ и пересохранить в кодировку
+                <code>UTF-8 BOM</code>. В демонстрационном репозитории
+                все уже в правильной кодировке.</p>
+                <h2 id="git-пути-и-директории">Git, пути и
+                директории</h2>
+                <p>Если вы, как я, до этого никогда не имели дела с
+                настройкой CI/CD (кроме как GitHub, который все сам
+                делает), то можно зависнуть на очень простых
+                ошибках.</p>
+                <p>Иногда, при скачивании с Git работа может упасть с
+                ошибкой авторизации (<strong>Authentication
+                error</strong>). Это происходит рандомно у разных людей.
+                Чтобы исправить ошибку, нужно в конфигурационный файл
+                gitlab-runner <code>config.toml</code> под параметром
+                <code>url</code> добавить еще одну строку с параметром
+                <code>clone_url</code>. URL указать точно такой же как в
+                <code>url</code>. Магия, что сказать.</p>
+                <p>Чтобы запускать наши скрипты, нам полезно будет иметь
+                фиксированные директории. По умолчанию gitlab-runner
+                скачивает репозиторий в папку с названием из рандомного
+                набора букв и цифр (например,
+                <code>build/123hjksd898231</code>). В конфиг
+                <code>config.toml</code> в раздел
+                <code>[runners.custom_build_dir]</code> добавить строчку
+                <code>enabled = true</code>.</p>
+                <p>Вот как примерно выглядит конфиг после всех
+                фиксов:</p>
+                <div class="sourceCode" id="cb11"><pre
+                class="sourceCode toml"><code class="sourceCode toml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">concurrent</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">check_interval</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">shutdown_timeout</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">session_server</span><span class="kw">]</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">session_timeout</span> <span class="op">=</span> <span class="dv">1800</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">[[</span><span class="dt">runners</span><span class="kw">]]</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span> <span class="op">=</span> <span class="st">&quot;docbuilder&quot;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span> <span class="op">=</span> <span class="st">&quot;https://gitlab.blabla.ru/&quot;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">clone_url</span> <span class="op">=</span> <span class="st">&quot;https://gitlab.blabla.ru/&quot;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">id</span> <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">token</span> <span class="op">=</span> <span class="st">&quot;SOMETOKEN&quot;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">token_obtained_at</span> <span class="op">=</span> <span class="bn">2023-02-16T11:50:04Z</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">token_expires_at</span> <span class="op">=</span> <span class="bn">0001-01-01T00:00:00Z</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">tls-ca-file</span> <span class="op">=</span> <span class="st">&quot;D:</span><span class="sc">\\</span><span class="st">gitlab-runner</span><span class="sc">\\</span><span class="st">gitlab.blabla.ru.crt&quot;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">executor</span> <span class="op">=</span> <span class="st">&quot;shell&quot;</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">shell</span> <span class="op">=</span> <span class="st">&quot;powershell&quot;</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">[</span><span class="dt">runners</span><span class="kw">.</span><span class="dt">custom_build_dir</span><span class="kw">]</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">enabled</span> <span class="op">=</span> <span class="cn">true</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">[</span><span class="dt">runners</span><span class="kw">.</span><span class="dt">cache</span><span class="kw">]</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">MaxUploadedArchiveSize</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">[</span><span class="dt">runners</span><span class="kw">.</span><span class="dt">cache</span><span class="kw">.</span><span class="dt">s3</span><span class="kw">]</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">[</span><span class="dt">runners</span><span class="kw">.</span><span class="dt">cache</span><span class="kw">.</span><span class="dt">gcs</span><span class="kw">]</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">[</span><span class="dt">runners</span><span class="kw">.</span><span class="dt">cache</span><span class="kw">.</span><span class="dt">azure</span><span class="kw">]</span></span></code></pre></div>
+                <p>Эта настройка позволит в конфигурации
+                <code>.gitlab-ci.yml</code> задавать путь, куда будет
+                склонирован проект:</p>
+                <div class="sourceCode" id="cb12"><pre
+                class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GIT_CLONE_PATH</span><span class="kw">:</span><span class="at"> $CI_BUILDS_DIR/$CI_PROJECT_NAME</span></span></code></pre></div>
+                <p>Код будет склонирован в папку
+                <code>/build/[название проекта с Gitlab]</code>. Можно
+                также указать вместо <code>$CI_PROJECT_NAME</code> любое
+                имя.</p>
+                <p>Когда будете формировать шаги по сборке gostdown’ом
+                очень рекомендую использовать команды перехода по
+                директориям перед выполнением скриптов. Скрипты не будут
+                выполнятся, если их путь начинается с переменной
+                (<code>./$CI_BUILDS_DIR/test/build.ps1</code> будет
+                ругаться на
+                <code>You must provide a value expression following the '/' operator.</code>,
+                <code>Unexpected token</code>,
+                <code>Missing closing '}' in statement block or type definition</code>
+                и все подряд).</p>
+                <p>Кроме того, скрипт <code>build.ps1</code> необходимо
+                запускать из директории документа, который вы собираете.
+                В противном случае, pandoc сначала не найдет файлов,
+                потом не найдет include, потом вообще обидится и упадет
+                с ошибкой. Так что если что-то не собирается, и
+                возникают непонятные ошибки, сначала проверьте все
+                пути!</p>
+                <h2 id="права-разрешения-и-доступ-к-comobject">Права,
+                разрешения и доступ к COMObject</h2>
+                <p>Если вы сразу после установки и успешного выполнения
+                джобы из туториала попробуете запустить скрипт Gostdown,
+                то ничего у вас не выйдет. Скрипт свалится вот на этой
+                строчке:
+                <code>$word = New-Object -ComObject Word.Application</code>.</p>
+                <p>Нет, у меня сначала все получилось, потому что я
+                запускала все на своем ноутбуке для тестирования. Но при
+                переносе пайплайна на отдельный сервер вылезли ошибки,
+                связанные с правами запуска службы и разрешениями
+                COMObject.</p>
+                <p>Такая горемыка была не я одна, про это есть тред на
+                <a
+                href="https://stackoverflow.com/questions/74277833/powershell-script-doesnt-work-with-docx-files-as-com-objects-while-being-run-vi">stackoverflow</a>.
+                В одиноком ответе к этой проблеме содержится способ
+                решения.</p>
+                <ol type="1">
+                <li>В “Службах” найти gitlab-runner -&gt;
+                <em>Свойства</em> на вкладке <em>Вход в систему</em>
+                поставить переключатель в <em>С учетной записью</em> и
+                указать имя пользователя и пароль (я указала
+                пользователя с административными правами, под которым
+                ставила pandoc, word и все остальное).</li>
+                <li>Выберите <em>Пуск</em> -&gt; <em>Выполнить</em> (или
+                нажмите Win + R) -&gt; введите <code>MMC -32</code> и
+                нажмите ОК.</li>
+                <li>Выберите <em>Файл</em> -&gt; <em>Добавить/удалить
+                оснастку</em> -&gt;_ добавьте Службы компонентов_.
+                Сохраните консоль.</li>
+                <li>Запустите сохраненную консоль с правами
+                администратора.</li>
+                <li>Раскройте дерево <em>Службы компонентов</em> до
+                <em>Мой компьютер</em> и выберите <em>Настройка
+                DCOM</em>.</li>
+                <li>Найдите
+                <code>Microsoft Word 97 - 2003 Document</code> -&gt; ПКМ
+                -&gt; _Свойства.</li>
+                <li>На вкладке <em>Удостоверение</em> выберите
+                <em>Указанный пользователь</em> и укажите учетные данные
+                пользователя (такой же как на шаге 1).</li>
+                <li>На вкладке <em>Безопасность</em> &gt; <em>Разрешения
+                на доступ</em> выбрать <em>Настроить</em> и добавить
+                явно своего пользователя и выдать ему все разрешения.
+                Также у меня выданы разрешения в разделе <em>Разрешения
+                на настройку</em>. Это риск безопасности, так что
+                выполняйте такую настройку только в доверенной
+                сети.</li>
+                </ol>
+                <p>Вот, теперь должно работать. Имейте в виду, что
+                теперь работа не будет запускаться, если выполнен
+                интерактивный вход под тем же пользователем (то есть вы
+                залогинены, например, по удаленному рабочему столу). Для
+                тестирования можно переключить в пункте 7 удостоверение
+                на интерактивного пользователя, тогда служба будет
+                запускаться с правами залогиненного пользователя.</p>
+                <p>Еще несколько моментов:</p>
+                <ol type="1">
+                <li>Если работа зависла на этапе взаимодействия с Word,
+                то все дальнейшие запуски и работы завершаться ошибкой,
+                так как процесс Word будет продолжать висеть. Чтобы
+                этого не происходило, можно добавлять в конфиг работы
+                команду <code>Stop-Process -Name "WINWORD"</code> перед
+                или после выполнения скрипта (лучше до).</li>
+                <li>Если работа завершилась ошибкой, на этапе
+                взаимодействия с <code>template.docx</code>, то
+                следующее открытие Word может повиснуть с диалоговым
+                окном, которое нужно закрыть вручную. Как это обойти, я
+                пока не поняла, но больше работы у меня не зависали, так
+                что это редкая ошибка.</li>
+                </ol>
+                <h1 id="пример-конфигурации">Пример конфигурации</h1>
+                <p>Так как в демонстрационном проекте на GitHub показать
+                сборку затруднительно, я покажу рабочий конфиг работы
+                вывод консоли (рисунки <a
+                href="#fig:2023-03-07-job-console">3</a>,<a
+                href="#fig:2023-03-07-job-result">2</a>).</p>
+                <p>Ниже конфиг <code>.gitlab-ci.yml</code> для сборки
+                одного документа (в данном случае - программа и методика
+                испытаний, её чаще всего требуется собирать). Работа
+                собирает документ, обновляет поля и отправляет артефакты
+                работы в Gitlab.</p>
+                <p>Keyword <code>workflow</code> обрабатывается перед
+                работами и определяет, будет ли генерироваться пайплайн
+                и при каких условиях (см. <a
+                href="https://docs.gitlab.cn/14.0/ee/ci/yaml/README.html#workflow">документацию</a>).
+                В данном случае, пайплайн будет сгенерирован только,
+                если в commit message содержится ключевой флаг
+                <code>-build</code>.</p>
+                <div class="sourceCode" id="cb13"><pre
+                class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GIT_CLONE_PATH</span><span class="kw">:</span><span class="at"> $CI_BUILDS_DIR/$CI_PROJECT_NAME</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">workflow</span><span class="kw">:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_COMMIT_MESSAGE =~ /-build$/</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Build PMI</span><span class="kw">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CHCP 65001</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">when</span><span class="kw">:</span><span class="at"> manual</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo &quot;Starting building PMI...&quot;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir build</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo &quot;Reading include file...&quot;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> get-content $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/docx_include.txt | foreach {&quot;builds/$CI_PROJECT_NAME/docs_gost/pmi/&quot; + $_} | out-file $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/include.txt</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo &quot;Building...&quot;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ./../../scripts/build.ps1 -md $(Get-Content $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/include.txt) -template $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/template.docx -luafilter $CI_BUILDS_DIR/$CI_PROJECT_NAME/scripts/ -docx $CI_BUILDS_DIR/$CI_PROJECT_NAME/build/pmi.docx -embedfonts</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> sleep 5</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo &quot;Updating fields...&quot;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd $CI_BUILDS_DIR/$CI_PROJECT_NAME</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ./scripts/update_docx_props.ps1 -dir $CI_BUILDS_DIR/$CI_PROJECT_NAME/build -conf $CI_BUILDS_DIR/$CI_PROJECT_NAME/scripts/configs/pmi.xml -filename pmi.docx</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> sleep 5</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> build/pmi.docx</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span></code></pre></div>
+                <p>Параметр <code>expire_in</code> устанавливает время
+                хранения собранного документа на Gitlab. По истечение
+                этого срока, артефакт удаляется. Однако, по умолчанию
+                GitLab в версии, начиная с 13, всегда сохраняет
+                последний артефакт (это настраивается для каждого
+                проекта в секции CI/CD).</p>
+                <p>Если нужно, чтобы работа запускалась автоматически
+                только для мастера, а для всех остальных веток – только
+                вручную, то в работу (или в <code>workflow</code>) можно
+                добавить правило (<a
+                href="https://gitlab.com/brendan-demo/default-or-manual-deploy">пример</a>):</p>
+                <div class="sourceCode" id="cb14"><pre
+                class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">when</span><span class="kw">:</span><span class="at"> always</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">when</span><span class="kw">:</span><span class="at"> manual</span></span></code></pre></div>
+                <p>В шаге скрипта <code>Reading include file...</code>
+                выше выполняется операция по изменению путей в файле
+                <code>docx_include.txt</code>. По умолчанию в этом файле
+                хранится список .md, которые мы хотим включить в
+                результирующий .docx. Однако при запуске gitlab-runner
+                пути в этом файле нужно изменить на относительные пути
+                от gitlab-runner.exe, что и сделано в этом шаге.</p>
+                <p>На рисунке ниже видно, что отработал скрипт
+                обновления полей документов: вопросительные знаки вместо
+                русского языка из-за региональных настроек, в документе
+                все будет установлено корректно.</p>
+                <figure>
+                <img
+                src="_img/2023-03-07-job-result.png"
+                id="fig:2023-03-07-job-result"
+                alt="Рисунок 2 – Результат в списке работ" />
+                <figcaption aria-hidden="true">Рисунок 2 – Результат в
+                списке работ</figcaption>
+                </figure>
+                <figure>
+                <img
+                src="_img/2023-03-07-job-console.png"
+                id="fig:2023-03-07-job-console"
+                alt="Рисунок 3 – Консоль" />
+                <figcaption aria-hidden="true">Рисунок 3 –
+                Консоль</figcaption>
+                </figure>
+                <h1 id="чистим-историю-пайплайнов">Чистим историю
+                пайплайнов</h1>
+                <p>Пока я тестировала ci/cd, в проектах образовалась
+                длинная история работ и пайплайнов. Вручную их удалять
+                очень долго, а кнопки “почистить историю” в гитлаб еще
+                не завезли. Поэтому рекомендую проводить тесты и
+                настройку на тестовом проекте, который не жалко будет
+                грохнуть. Если же вас, как и меня, бесит грязная история
+                <code>failed</code> пайплайнов, то можно почистить
+                историю скриптом на Python с библиотекой <a
+                href="https://python-gitlab.readthedocs.io/en/stable/index.html">python-gitlab</a>:</p>
+                <div class="sourceCode" id="cb15"><pre
+                class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gitlab</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>project_id <span class="op">=</span> <span class="dv">55</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>gl <span class="op">=</span> gitlab.Gitlab(<span class="st">&#39;https://gitlab.blabla.ru/&#39;</span>, private_token<span class="op">=</span><span class="st">&#39;TOKEN&#39;</span>, api_version<span class="op">=</span><span class="st">&#39;4&#39;</span>,ssl_verify<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>project <span class="op">=</span> gl.projects.get(project_id, obey_rate_limit<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pipeline <span class="kw">in</span> project.pipelines.<span class="bu">list</span>(as_list<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    pipeline.delete()</span></code></pre></div>
+                <p>Если у вас selfhosted GitLab, то возможно придется
+                немного доработать скрипт в зависимости от вашего SSL,
+                мне хватило просто отключить проверку. В скрипте нужно
+                указать ID проекта, URL и токен. Запустить скрипт 2-3
+                раза - и ура, история пайплайнов чиста и прекрасна, и
+                позорные ошибки никто не увидит )</p>
+                <h1 id="вместо-эпилога">Вместо эпилога</h1>
+                <p>Полагаю, после всех пережитых приключений логичным
+                следующим этапом должно быть прикручивание какого-нибудь
+                ChatGPT или аналогичной сетки к документации. А то что,
+                у нас зря что ли отдел машинного обучения сидит,
+                <del>ерундой</del> важными проектами занимается? Уже
+                есть интересные плагины для редактора ObsidianMD,
+                которые делают неплохие summary - для научных отчетов и
+                обзоров литературы просто огонь. Также есть немало
+                задач, где требуется набросать несложную инструкцию по
+                официальной документации (например, docker, linux и
+                т.д.).</p>
+                <p>Как вы поняли, конечная цель, чтобы документация
+                писалась сама, я потеряла работу и ушла работать
+                дворником (рисунок <a href="#fig:cat">4</a>). Их вроде
+                не собираются автоматизировать, здесь пока люди дешевле
+                технологий )</p>
+                <figure>
+                <img src="_img/cat.png" id="fig:cat"
+                alt="Рисунок 4 – Котик" />
+                <figcaption aria-hidden="true">Рисунок 4 –
+                Котик</figcaption>
+                </figure>
+              </div>
+    </div>
+  </div>
+  <script src="assets/js/video.js"></script>
+
+</body>
+
+</html>

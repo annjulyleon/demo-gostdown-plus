@@ -1,0 +1,15 @@
+extends: existence
+message: "Не используйте местоимения первого лица '%s'."
+ignorecase: true
+level: warning
+nonword: true
+tokens:
+  - \bЯ\b
+  - \bменя\b
+  - \bмой\b
+  - \bмоя\b
+  - \bмои\b
+  - \bмоего\b
+  - \bмоим\b
+  - \bмы\b
+  - \bнаш\b

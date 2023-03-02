@@ -1,0 +1,153 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Make html",
+            "detail": "Create simple html from md files in include.txt in build/web",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/docs_gost/${input:doc}/"
+            },
+            "command": "New-Item -Path ${workspaceFolder}\\build -Name 'web' -ItemType 'directory' -Force; ${workspaceFolder}\\scripts\\create_simple_html.ps1 ${workspaceFolder}\\docs_gost\\${input:doc} ${workspaceFolder}\\scripts\\${input:html_template}.html ${workspaceFolder}\\scripts ${workspaceFolder}\\build\\web ${input:doc}; New-Item -Path ${workspaceFolder}\\build\\web -Name '_img' -ItemType 'directory' -Force; Copy-Item -Path ${workspaceFolder}\\docs_gost\\${input:doc}\\_img\\* -Destination ${workspaceFolder}\\build\\web\\_img; Copy-Item -Path ${workspaceFolder}\\docs_gost\\single_source\\_img\\* -Destination ${workspaceFolder}\\build\\web\\_img -Recurse",
+            "problemMatcher": []
+        },
+        {
+            "label": "Fix img path in HTML",
+            "detail": "Replace single_source path with _img",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build/"
+            },
+            "command": "${workspaceFolder}\\scripts\\command_to_fix_image_paths.ps1",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Doc",
+            "detail": "Build selected in docx_include.txt to build docs",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/docs_gost/${input:doc}/"
+            },
+            "command": "${workspaceFolder}\\scripts\\build.ps1 -md $(Get-Content docx_include.txt) -template ${workspaceFolder}\\docs_gost\\template.docx -luafilter ${workspaceFolder}\\scripts -docx ${workspaceFolder}\\build\\${input:doc}.docx -embedfonts",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Update docx fields",
+            "detail": "Update builded document",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build/"
+            },
+            "command": "${workspaceFolder}\\scripts\\update_docx_props.ps1 -dir ${workspaceFolder}\\build -conf ${workspaceFolder}\\scripts\\configs\\${input:doc}.xml -filename ${input:doc}.docx",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Initialize Project",
+            "detail": "Create directories and unpack assets",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "New-Item -Path ${workspaceFolder} -Name 'build' -ItemType 'directory' -Force;New-Item -Path ${workspaceFolder}/build -Name 'web' -ItemType 'directory' -Force; Expand-Archive ${workspaceFolder}/scripts/assets.zip -DestinationPath ${workspaceFolder}/build/web/assets",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build Report (Without bat)",
+            "detail": "Situational, removes all from root _img and doesn't update counters, run with care",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/report/"
+            },
+            "command": "Copy-Item -Path ${workspaceFolder}\\report\\01_section\\_img\\* -Destination ${workspaceFolder}\\report\\_img; Copy-Item -Path ${workspaceFolder}\\report\\02_section\\_img\\* -Destination ${workspaceFolder}\\report\\_img; ${workspaceFolder}\\scripts\\build.ps1 -md $(Get-Content docx_include.txt) -template ${workspaceFolder}\\report\\template-report.docx -luafilter ${workspaceFolder}\\scripts -docx ${workspaceFolder}\\build\\report.docx -embedfonts;Remove-Item ${workspaceFolder}\\report\\_img\\*.*",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build Report Bat",
+            "detail": "Recommended Report Build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/report/"
+            },
+            "command": ".\\build.bat",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "doc",
+            "description": "Document Path: ",
+            "type": "pickString",
+            "options": [
+                "example_doc"
+            ],
+            "default": "example_doc"
+        },
+        {
+            "id": "html_template",
+            "description": "Html Template: ",
+            "type": "pickString",
+            "options": [
+                "easy_template",
+                "easy_template_local"
+            ],
+            "default": "easy_template"
+        }
+    ]
+}

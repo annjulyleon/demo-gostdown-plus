@@ -1,0 +1,12 @@
+extends: existence
+message: "Знаки пунктуации в конце ячейки таблицы не ставятся"
+nonword: true
+level: warning
+scope: table.cell
+action:
+  name: edit
+  params:
+    - remove
+    - '.?!'
+tokens:
+  - '[А-яA-z0-9][.?!](?:\s+|$|)\s+\|'

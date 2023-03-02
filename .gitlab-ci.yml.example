@@ -1,0 +1,25 @@
+variables:
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_PROJECT_NAME
+
+Build PMI:
+  before_script:
+    - CHCP 65001
+  stage: build
+  when: manual
+  script:
+    - echo "Starting building PMI..."
+    - mkdir build
+    - echo "Reading include file..."
+    - get-content $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/docx_include.txt | foreach {"builds/$CI_PROJECT_NAME/docs_gost/pmi/" + $_} | out-file $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/include.txt
+    - echo "Building..."
+    - cd $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi
+    - ./../../scripts/build.ps1 -md $(Get-Content $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/pmi/include.txt) -template $CI_BUILDS_DIR/$CI_PROJECT_NAME/docs_gost/template.docx -luafilter $CI_BUILDS_DIR/$CI_PROJECT_NAME/scripts/ -docx $CI_BUILDS_DIR/$CI_PROJECT_NAME/build/pmi.docx -embedfonts
+    - sleep 5
+    - echo "Updating fields..."
+    - cd $CI_BUILDS_DIR/$CI_PROJECT_NAME
+    - ./scripts/update_docx_props.ps1 -dir $CI_BUILDS_DIR/$CI_PROJECT_NAME/build -conf $CI_BUILDS_DIR/$CI_PROJECT_NAME/scripts/configs/pmi.xml -filename pmi.docx
+    - sleep 5
+  artifacts:
+    paths:
+      - build/pmi.docx
+    expire_in: 1 hour

@@ -1,0 +1,17 @@
+extends: substitution
+message: "Используйте '%s' вместо '%s'"
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  vipnet: ViPNet
+  sql: SQL
+  powershell: PowerShell
+  "Post?gr?e(?:SQL)": PostgreSQL
+  "node[.]?js": Node.js
+  yaml: YAML
+  urls: URLs
+  uris: URIs
+  gpu: GPU
+  "java[ -]?scripts?": JavaScript

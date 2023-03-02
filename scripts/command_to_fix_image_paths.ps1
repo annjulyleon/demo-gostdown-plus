@@ -1,0 +1,1 @@
+foreach ($file in (Get-ChildItem .\web *.html -rec)) { (Get-Content $file.PSPath) | Foreach-Object { $_ -replace '..\\single_source\\_img\\', '_img/' } | Set-Content $file.PSPath }

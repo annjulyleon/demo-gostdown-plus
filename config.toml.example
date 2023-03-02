@@ -1,0 +1,25 @@
+concurrent = 1
+check_interval = 0
+shutdown_timeout = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "wintachka"
+  url = "https://gitlab.blabla.ru/"
+  clone_url = "https://gitlab.blabla.ru/"
+  id = 6
+  token = "TOKEN"
+  token_obtained_at = 2023-02-16T11:50:04Z
+  token_expires_at = 0001-01-01T00:00:00Z
+  tls-ca-file = "D:\\shared\\glrunner1\\gitlab.blabla.ru.crt"
+  executor = "shell"
+  shell = "powershell"
+  [runners.custom_build_dir]
+    enabled = true
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]

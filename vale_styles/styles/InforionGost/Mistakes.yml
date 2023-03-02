@@ -1,0 +1,11 @@
+extends: substitution
+message: "Используйте '%s' вместо '%s'"
+level: error
+ignorecase: true
+# My favourite mistakes are here
+action:
+  name: replace
+swap:
+  по-умолчанию: по умолчанию
+  фазе(?:р|ру|ра|ры|ром|ре): фаззер
+  фазин(?:г|га|гу|гом|ге): фаззинг

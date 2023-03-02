@@ -1,0 +1,10 @@
+extends: substitution
+message: "Канцеляризм! Используйте '%s' вместо '%s'"
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  функционирования: работы
+  функционирование: работа
+  с целью: для

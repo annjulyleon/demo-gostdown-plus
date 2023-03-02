@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [ ],
+		"cSpell.ignoreWords": [],
+		"vale.valeCLI.path": "vale",
+	}
+}

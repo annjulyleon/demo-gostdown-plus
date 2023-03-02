@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<configuration>
+  <customProperties>
+    <add key="DeviceName" value="Красивое название"/>
+	<add key="DocTitle" value="Описание программы"/>	
+	<add key="DecimalNumber" value="АБВГ.00002 01 13"/>
+	<add key="DocSubtitle" value="Подзаголовок"/>
+	<add key="DocYear" value="2023"/>
+  </customProperties>
+  <builtinProperties>
+	<add key="Title" value="Красивое название. Описание программы"/>
+	<add key="Subject" value="Красивое название"/>
+	<add key="Keywords" value="description"/>
+	<add key="Comments" value="2023"/>
+  </builtinProperties>
+    <vsdProperties>
+    </vsdProperties>
+</configuration>

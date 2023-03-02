@@ -1,0 +1,12 @@
+extends: existence
+message: "Знаки пунктуации в конце заголовка не ставятся"
+nonword: true
+level: warning
+scope: heading
+action:
+  name: edit
+  params:
+    - remove
+    - '.?!'
+tokens:
+  - '[А-яA-z0-9][.?!](?:\s|$)'
